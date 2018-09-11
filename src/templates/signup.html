@@ -1,16 +1,16 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-    Log In
+    Sign Up
 {% endblock %}
 
 {% block main %}
     <div class="container">
         <div class="text-center mt-5">
             <h2 class="logo">Todo List</h2>
-            <h3 class="header-login-signup">Log in</h3>
+            <h3 class="header-login-signup">Sign up</h3>
         </div>
-        <form class="form-login-signup mx-auto mx-4 mt-4" action="/login" method="post">
+        <form class="form-login-signup mx-auto mx-4 mt-4" action="/signup" method="post">
             <div class="form-group">
                 <input class="form-control p-3" autocomplete="off" autofocus name="username" placeholder="Username"
                     type="text" required/>
@@ -18,12 +18,15 @@
             <div class="form-group">
                 <input class="form-control p-3" name="password" placeholder="Password" type="password" required/>
             </div>
+            <div class="form-group">
+                <input class="form-control p-3" name="confirmation" placeholder="Password (again)" type="password" required/>
+            </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="remember-me-check" name="remember">
                 <label class="form-check-label" for="remember-me-check">Remember me</label>
             </div>
-            <button class="btn btn-primary btn-lg w-100" type="submit">Log In</button>
-            <p class="mt-4 text-muted">Don't have an account yet? <a href="/signup">Sign up</a>!</p>
+            <button class="btn btn-primary btn-lg w-100" type="submit">Sign up</button>
+            <p class="mt-4 text-muted">Already signed up? <a href="/login">Log in</a>!</p>
         </form>
     </div>
 {% endblock %}

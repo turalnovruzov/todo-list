@@ -1,5 +1,5 @@
-/* Log In */
-.form-login {
+/* Log In and Sign up */
+.form-login-signup {
     max-width: 340px;
 }
 
@@ -7,7 +7,7 @@
     color: #80C0C0;
 }
 
-.header-login {
+.header-login-signup {
     color: #E0E0E0;
 }
-/* Log In End */
+/* Log In and Sign Up End */
