@@ -1,30 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block title %}
-Log In
+    Log In
 {% endblock %}
 
 {% block main %}
-<div class="container">
-    <div class="text-center mt-5">
-        <h2 class="logo">Todo List</h2>
-        <h3 class="header-login">Log in</h3>
+    <div class="container">
+        <div class="text-center mt-5">
+            <h2 class="logo">Todo List</h2>
+            <h3 class="header-login">Log in</h3>
+        </div>
+        <form class="form-login mx-auto mx-4 mt-4" action="/login" method="post">
+            <div class="form-group">
+                <input class="form-control p-3" autocomplete="off" autofocus name="username" placeholder="Username"
+                    type="text" required/>
+            </div>
+            <div class="form-group">
+                <input class="form-control p-3" name="password" placeholder="Password" type="password" required/>
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="remember-me-check" name="remember">
+                <label class="form-check-label" for="remember-me-check">Remember me</label>
+            </div>
+            <button class="btn btn-primary btn-lg w-100" type="submit">Log In</button>
+            <p class="mt-4 text-muted">Don't have an account yet? <a href="/signup">Sign up</a>!</p>
+        </form>
     </div>
-    <form class="form-login mx-auto mx-4 mt-4" action="/login" method="post">
-        <div class="form-group">
-            <input class="form-control p-3" autocomplete="off" autofocus name="username" placeholder="Username"
-                   type="text" required/>
-        </div>
-        <div class="form-group">
-            <input class="form-control p-3" name="password" placeholder="Password" type="password" required/>
-        </div>
-        <div class="form-group form-check">
-            <input type="checkbox" class="form-check-input" id="remember-me-check">
-            <label class="form-check-label" for="remember-me-check">Remember me</label>
-        </div>
-        <button class="btn btn-primary btn-lg w-100" type="submit">Log In</button>
-        <p class="mt-4 text-muted">Don't have an account yet? <a href="/signup">Sign up</a>!</p>
-    </form>
-</div>
-
 {% endblock %}

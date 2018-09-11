@@ -20,23 +20,24 @@
 </head>
 <body class="bg-dark text-light">
 
-{% if session.uid %}
-<nav class="navbar navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">Todo List</a>
+    {% if session.uid %}
+        <nav class="navbar navbar-dark bg-dark">
+            <a class="navbar-brand" href="/">Todo List</a>
 
-    <ul class="navbar-nav">
-        <li class="nav-item">
-            <a class="nav-link" href="/logout">
-                <i class="fas fa-sign-out-alt"></i>
-            </a>
-        </li>
-    </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </a>
+                </li>
+            </ul>
 
-</nav>
-{% endif %}
-<main>
-    {% block main %}{% endblock %}
-</main>
+        </nav>
+    {% endif %}
+    
+    <main>
+        {% block main %}{% endblock %}
+    </main>
 
 </body>
 </html>
