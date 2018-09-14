@@ -10,16 +10,16 @@
             <h2 class="logo">Todo List</h2>
             <h3 class="header-login-signup">Sign up</h3>
         </div>
-        <form class="form-login-signup mx-auto mx-4 mt-4" action="/signup" method="post">
+        <form id="signup-form" class="form-login-signup mx-auto mx-4 mt-4" action="/signup" method="post">
             <div class="form-group">
-                <input class="form-control p-3" autocomplete="off" autofocus name="username" placeholder="Username"
+                <input id="username" class="form-control p-3" autocomplete="off" autofocus name="username" placeholder="Username"
                     type="text" required/>
             </div>
             <div class="form-group">
-                <input class="form-control p-3" name="password" placeholder="Password" type="password" required/>
+                <input id="password" class="form-control p-3" name="password" placeholder="Password" type="password" required/>
             </div>
             <div class="form-group">
-                <input class="form-control p-3" name="confirmation" placeholder="Password (again)" type="password" required/>
+                <input id="confirmation" class="form-control p-3" name="confirmation" placeholder="Password (again)" type="password" required/>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="remember-me-check" name="remember">

@@ -1,3 +1,7 @@
+.alert {
+    border-radius: 0 !important;
+}
+
 /* Log In and Sign up */
 .form-login-signup {
     max-width: 340px;
