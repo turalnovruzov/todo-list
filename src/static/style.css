@@ -8,10 +8,36 @@
 }
 
 .logo {
-    color: #80C0C0;
+    color: #80C0C0 !important;
+    font-size: 1.8rem !important;
 }
 
 .header-login-signup {
     color: #E0E0E0;
 }
 /* Log In and Sign Up End */
+
+/* Index */
+.container * {
+    border-radius: 0 !important;
+    border: 0;
+}
+
+.todo-add-caption {
+    border: 0 !important;
+    background: #f5f6f7 !important;
+}
+
+.todo-item {
+    width: 100%;
+}
+
+.todo-item-caption {
+    border: 0 !important;
+    transition: background .15s ease-in-out !important;
+}
+
+.todo-item-caption:hover {
+    background: #f5f6f7 !important;
+}
+/* Index End */

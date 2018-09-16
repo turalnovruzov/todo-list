@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Todo List
+{% endblock %}
+
+{% block main %}
+    <div class="container mt-4">
+        <div class="input-group">
+            <input type="text" class="form-control todo-add-caption" placeholder="Add todo" aria-label="Add todo" aria-describedby="add-button">
+            <div class="input-group-append">
+                <button class="btn btn-secondary" type="button" id="add-button"><i class="fas fa-plus"></i></button>
+            </div>
+        </div>
+        {% for id, content in todo_items %}
+            <div class="todo-item input-group">
+                <span class="todo-item-caption form-control">{{ content }}</span>
+                <div class="input-group-append">
+                    <button class="btn btn-secondary todo-item-remove" type="button" id="{{ id }}"><i class="fas fa-trash-alt"></i></button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

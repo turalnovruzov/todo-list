@@ -3,7 +3,7 @@ $(document).ready(function () {
         let return_value = true;
         $.ajax({
             type: "POST",
-            url: "/username_check",
+            url: "/api/username_check",
             data: { username: value },
             success: (data) => {
                 return_value = !data.exists;

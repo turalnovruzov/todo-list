@@ -17,6 +17,9 @@ db = SQLAlchemy(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 
+# Configure login_required
+login_manager.unauthorized_handler(lambda: redirect('/login'))
+
 
 # Models
 class User(db.Model, UserMixin):
@@ -56,6 +59,11 @@ def after_request(response):
     response.headers["Expires"] = 0
     response.headers["Pragma"] = "no-cache"
     return response
+
+
+@app.context_processor
+def inject_user():
+    return dict(user=current_user)
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -156,7 +164,7 @@ def signup():
         return render_template('signup.html')
 
 
-@app.route('/username_check', methods=['POST'])
+@app.route('/api/username_check', methods=['POST'])
 def username_check():
     """
     Checks if username is already taken
@@ -190,3 +198,32 @@ def logout():
 
     # Redirect to login page
     return redirect('/login')
+
+
+@app.route('/', methods=['GET', 'POST', 'DELETE'])
+@login_required
+def index():
+    """
+    GET: Renders the index page
+    POST: Adds todo to database
+    DELETE: Deletes todo from database
+    """
+
+    # If request method is POST
+    if request.method == 'POST':
+        # TODO: implement index POST method
+        return redirect('/')
+
+    # If request method is DELETE
+    if request.method == 'DELETE':
+        # TODO: implement index DELETE method
+        return redirect('/')
+
+    # If request method is GET
+    if request.method == 'GET':
+        # Query database for todo items
+        todo_items = Todo.query.filter_by(user_id=current_user.id).with_entities(Todo.id, Todo.content).all()
+
+        print(todo_items)
+
+        return render_template('index.html', todo_items=todo_items)
