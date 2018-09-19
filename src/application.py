@@ -211,19 +211,44 @@ def index():
 
     # If request method is POST
     if request.method == 'POST':
-        # TODO: implement index POST method
-        return redirect('/')
+
+        # Ensure content is provided
+        if not request.form.get('content'):
+            return make_response(('Content required', 400))
+
+        # Add the todo to database
+        db.session.add(Todo(content=request.form.get('content'), user_id=current_user.id))
+        db.session.commit()
+
+        return make_response(('Todo added to database', 200))
 
     # If request method is DELETE
     if request.method == 'DELETE':
-        # TODO: implement index DELETE method
-        return redirect('/')
+
+        # Ensure id is provided
+        if not request.form.get('id'):
+            return make_response(('Id required', 400))
+
+        # Add the todo to database
+        db.session.delete(Todo.query.get_or_404(request.form.get('id')))
+        db.session.commit()
+
+        return make_response(('Todo deleted from database', 200))
 
     # If request method is GET
     if request.method == 'GET':
         # Query database for todo items
         todo_items = Todo.query.filter_by(user_id=current_user.id).with_entities(Todo.id, Todo.content).all()
 
-        print(todo_items)
+        if request.args.get('json'):
+            todo_dicts = list()
+
+            for item in todo_items:
+                todo_dicts.append({
+                    'id': item[0],
+                    'content': item[1]
+                })
+
+            return jsonify(todo_dicts)
 
         return render_template('index.html', todo_items=todo_items)
