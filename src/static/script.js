@@ -68,21 +68,20 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("click", ".todo-item-remove", (e) => {
-        e.preventDefault();
-        console.log(e.target.id)
+    $(document).on("click", ".todo-item-remove", function() {
         $.ajax({
             type: "DELETE",
             url: "/",
-            data: {id: e.target.id},
+            data: {id: this.id},
             success: (response) => {
                 reloadTodoList();
             }
         });
+
+        return false;
     });
 
-    $(document).on("submit", "#todo-add-form", (e) => { 
-        e.preventDefault();
+    $(document).on("submit", "#todo-add-form", function() {
         if ($("#todo-add-caption").val()) {
             $.ajax({
                 type: "POST",
@@ -93,6 +92,8 @@ $(document).ready(function () {
                 }
             });
         }
+
+        return false;
     });
 
     // $(document).on("hover", ".todo-item",
