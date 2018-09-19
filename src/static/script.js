@@ -68,7 +68,7 @@ $(document).ready(function () {
         }
     });
 
-    $(document).on("submit", ".todo-item-remove", (e) => { 
+    $(document).on("click", ".todo-item-remove", (e) => {
         e.preventDefault();
         console.log(e.target.id)
         $.ajax({
